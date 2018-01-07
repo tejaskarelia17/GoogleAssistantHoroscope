@@ -25,7 +25,7 @@ app.get('/horoscope', function(req, res) {
 				console.log(json);
 			})
 		}
-
+		res.send(JSON.stringify(json));
 		
 	})
 })
