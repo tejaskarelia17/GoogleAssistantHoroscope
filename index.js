@@ -23,9 +23,10 @@ app.get('/horoscope', function(req, res) {
 				
 				json.prediction = todaysHoroscope;
 				console.log(json);
+				res.send(JSON.stringify(json));
 			})
 		}
-		res.send(JSON.stringify(json));
+
 		
 	})
 })
