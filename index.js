@@ -42,9 +42,7 @@ app.post('/horoscope', function(req, res) {
 	// 	test: Sign
 	// })
 	
-	//var Sign = req.body && req.body.parameters && req.body.parameters.horoscopeSign ? req.body.parameters.horoscopeSign: "Seems like some problem. Speak again.";
-	var Sign = req.body.parameters.horoscopeSign;
-	url = 'http://www.prokerala.com/astrology/horoscope/?sign='+Sign;
+	var Sign = req.body && req.body.parameters && req.body.parameters.horoscopeSign ? req.body.parameters.horoscopeSign: "Libra";
 	if(Sign != "Seems like some problem. Speak again.") {
 		url = 'http://www.prokerala.com/astrology/horoscope/?sign='+Sign;
 
