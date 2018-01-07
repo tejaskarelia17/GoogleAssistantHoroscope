@@ -3,7 +3,11 @@ const express = require('express'),
 		request = require('request'),
 		cheerio = require('cheerio');
 
+const bodyParser = require("body-parser");
+
 const app = express();
+
+app.use(bodyParser.json());
 
 app.get('/horoscope', function(req, res) {
 	url = 'http://www.prokerala.com/astrology/horoscope/?sign=cancer';
@@ -23,17 +27,22 @@ app.get('/horoscope', function(req, res) {
 				
 				json.prediction = todaysHoroscope;
 				console.log(json);
-				res.send(JSON.stringify(json));
+				res.send("Hello"+todaysHoroscope);
 			})
 		}
 
 		
 	})
-	res.send("Hello"+todaysHoroscope);
 })
 
 app.post('/horoscope', function(req, res) {
-	var Sign = req.body.result && req.body.result.parameters && req.body.result.parameters.horoscopeSign ? req.body.result.parameters.horoscopeSign: "Seems like some problem. Speak again.";
+
+	// var Sign = req.query.horoscopeSign;
+	// return res.json({
+	// 	test: Sign
+	// })
+	var Sign = req.body && req.body.parameters && req.body.parameters.horoscopeSign ? req.body.parameters.horoscopeSign: "Seems like some problem. Speak again.";
+
 	if(Sign != "Seems like some problem. Speak again.") {
 		url = 'http://www.prokerala.com/astrology/horoscope/?sign=' + Sign;
 
@@ -48,12 +57,18 @@ app.post('/horoscope', function(req, res) {
 				})
 			}
 		})
+		return res.json({
+		    speech: todaysHoroscope,
+		    displayText: todaysHoroscope,
+		    source: "webhook-horoscope-sample"
+		});
+	} else {
+			return res.json({
+			    speech: Sign,
+			    displayText: Sign,
+			    source: "webhook-horoscope-sample"
+			});
 	}
-	return res.json({
-	    speech: todaysHoroscope,
-	    displayText: todaysHoroscope,
-	    source: "webhook-horoscope-sample"
-	});
 })
 
 app.listen(process.env.PORT || 8000, function() {
