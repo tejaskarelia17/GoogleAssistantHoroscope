@@ -43,7 +43,7 @@ app.post('/horoscope', function(req, res) {
 	// })
 	
 	var Sign = req.body && req.body.parameters && req.body.parameters.horoscopeSign ? req.body.parameters.horoscopeSign: "Libra";
-	if(Sign != "Seems like some problem. Speak again.") {
+	// if(Sign != "Seems like some problem. Speak again.") {
 		url = 'http://www.prokerala.com/astrology/horoscope/?sign='+Sign;
 
 		  	request(url, function(err, response, html) {
@@ -62,13 +62,14 @@ app.post('/horoscope', function(req, res) {
 		    displayText: todaysHoroscope,
 		    source: "webhook-horoscope-sample"
 		});
-	} else {
-			return res.json({
-			    speech: Sign,
-			    displayText: Sign,
-			    source: "webhook-horoscope-sample"
-			});
-	}
+	// } 
+	// else {
+	// 		return res.json({
+	// 		    speech: Sign,
+	// 		    displayText: Sign,
+	// 		    source: "webhook-horoscope-sample"
+	// 		});
+	// }
 })
 
 app.listen(process.env.PORT || 8000, function() {
