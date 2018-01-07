@@ -29,6 +29,7 @@ app.get('/horoscope', function(req, res) {
 
 		
 	})
+	res.send("Hello"+todaysHoroscope);
 })
 
 app.post('/horoscope', function(req, res) {
