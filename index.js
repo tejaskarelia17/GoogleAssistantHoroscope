@@ -66,7 +66,7 @@ app.post('/horoscope', function(req, res) {
 		});
 	} else {
 			return res.json({
-			    speech: url,
+			    speech: Sign,
 			    displayText: Sign,
 			    source: "webhook-horoscope-sample"
 			});
