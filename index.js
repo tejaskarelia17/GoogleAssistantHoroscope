@@ -50,7 +50,8 @@ app.post('/horoscope', function(req, res) {
       : "Seems like some problem. Speak again.";
 
 	if(Sign != "Seems like some problem. Speak again.") {
-		url = 'http://www.prokerala.com/astrology/horoscope/?sign='+Sign;
+		
+		Sign = 'http://www.prokerala.com/astrology/horoscope/?sign='+Sign;
 
 		  	request(url, function(err, response, html) {
 			if(!err) {
