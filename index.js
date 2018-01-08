@@ -49,7 +49,7 @@ app.post('/horoscope', function(req, res) {
       ? req.body.result.parameters.horoscopeSign
       : "Seems like some problem. Speak again.";
 
-	if(Sign != "Seems like some problem. Speak again.") {
+	// if(Sign != "Seems like some problem. Speak again.") {
 
 		url = 'http://www.prokerala.com/astrology/horoscope/?sign='+Sign;
 
@@ -69,13 +69,13 @@ app.post('/horoscope', function(req, res) {
 				})
 			}
 		})
-	} else {
-			return res.json({
-			    speech: Sign,
-			    displayText: Sign,
-			    source: "webhook-horoscope-sample"
-			});
-	}
+	// } else {
+	// 		return res.json({
+	// 		    speech: Sign,
+	// 		    displayText: Sign,
+	// 		    source: "webhook-horoscope-sample"
+	// 		});
+	// }
 })
 
 app.post("/horoscope2", function(req, res) {
