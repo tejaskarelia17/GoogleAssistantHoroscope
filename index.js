@@ -35,7 +35,7 @@ app.get('/horoscope', function(req, res) {
 	})
 })
 
-app.post('/horoscope', function(req, res) {
+app.post('/horoscope1', function(req, res) {
 
 	// var Sign = req.query.horoscopeSign;
 	// return res.json({
@@ -43,6 +43,7 @@ app.post('/horoscope', function(req, res) {
 	// })
 	
 	var Sign = req.body && req.body.parameters && req.body.parameters.horoscopeSign ? req.body.parameters.horoscopeSign: "Seems like some problem. Speak again.";
+	
 	if(Sign != "Seems like some problem. Speak again.") {
 		url = 'http://www.prokerala.com/astrology/horoscope/?sign='+Sign;
 
@@ -70,6 +71,20 @@ app.post('/horoscope', function(req, res) {
 			});
 	}
 })
+
+app.post("/horoscope", function(req, res) {
+  var speech =
+    req.body.result &&
+    req.body.result.parameters &&
+    req.body.result.parameters.horoscopeSign
+      ? req.body.result.parameters.horoscopeSign
+      : "Seems like some problem. Speak again.";
+  return res.json({
+    speech: speech,
+    displayText: speech,
+    source: "webhook-echo-sample"
+  });
+});
 
 app.listen(process.env.PORT || 8000, function() {
   console.log("Server up and listening");
