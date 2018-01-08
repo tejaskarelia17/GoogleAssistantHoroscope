@@ -51,7 +51,7 @@ app.post('/horoscope', function(req, res) {
 
 	// if(Sign != "Seems like some problem. Speak again.") {
 
-		url = 'http://www.prokerala.com/astrology/horoscope/?sign=Cancer;
+		url = 'http://www.prokerala.com/astrology/horoscope/?sign=Cancer';
 
 		  	request(url, function(err, response, html) {
 			if(!err) {
