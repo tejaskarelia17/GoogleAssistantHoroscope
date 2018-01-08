@@ -44,7 +44,7 @@ app.post('/horoscope', function(req, res) {
 	
 	var Sign = req.body && req.body.parameters && req.body.parameters.horoscopeSign ? req.body.parameters.horoscopeSign: "Libra";
 	// if(Sign != "Seems like some problem. Speak again.") {
-		url = 'http://www.prokerala.com/astrology/horoscope/?sign='+Sign;
+		url = 'http://www.prokerala.com/astrology/horoscope/?sign=Libra';
 
 		  	request(url, function(err, response, html) {
 			if(!err) {
