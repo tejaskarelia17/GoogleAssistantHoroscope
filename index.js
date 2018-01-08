@@ -61,9 +61,10 @@ app.post('/horoscope', function(req, res) {
 				$('.horoscope-panel p').first().filter(function() {
 					const data = $(this);
 					todaysHoroscope = data.text().trim();
+					printScope =  todaysHoroscope.substring(0,result.length-5)
 							return res.json({
-		    speech: todaysHoroscope,
-		    displayText: todaysHoroscope,
+		    speech: printScope,
+		    displayText: printScope,
 		    source: "webhook-horoscope-sample"
 		});
 				})
