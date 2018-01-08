@@ -61,14 +61,14 @@ app.post('/horoscope', function(req, res) {
 				$('.horoscope-panel p').first().filter(function() {
 					const data = $(this);
 					todaysHoroscope = data.text().trim();
-				})
-			}
-		})
-		return res.json({
+							return res.json({
 		    speech: todaysHoroscope,
 		    displayText: todaysHoroscope,
 		    source: "webhook-horoscope-sample"
 		});
+				})
+			}
+		})
 	// } else {
 	// 		return res.json({
 	// 		    speech: Sign,
