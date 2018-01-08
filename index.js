@@ -61,7 +61,7 @@ app.post('/horoscope', function(req, res) {
 				$('.horoscope-panel p').first().filter(function() {
 					const data = $(this);
 					todaysHoroscope = data.text().trim();
-					printScope =  todaysHoroscope.substring(0,todaysHoroscope.length-27);
+					printScope =  "Your todays prediction is that " +todaysHoroscope.substring(0,todaysHoroscope.length-27);
 							return res.json({
 		    speech: printScope,
 		    displayText: printScope,
