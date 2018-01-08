@@ -27,7 +27,7 @@ app.get('/horoscope', function(req, res) {
 				
 				json.prediction = todaysHoroscope;
 				console.log(json);
-				res.send("Hello"+todaysHoroscope);
+				res.send("Hello" + todaysHoroscope);
 			})
 		}
 
@@ -61,7 +61,7 @@ app.post('/horoscope', function(req, res) {
 				$('.horoscope-panel p').first().filter(function() {
 					const data = $(this);
 					todaysHoroscope = data.text().trim();
-					printScope =  todaysHoroscope.substring(0,result.length-5)
+					printScope =  todaysHoroscope.substring(0,todaysHoroscope.length-27);
 							return res.json({
 		    speech: printScope,
 		    displayText: printScope,
